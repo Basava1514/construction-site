@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us - Shiva Shakti{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <h2>Contact Us</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="mb-3">
+          <label class="form-label">Name</label>
+          {{ form.name }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Phone</label>
+          {{ form.phone }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          {{ form.email }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Service Required</label>
+          {{ form.service }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Message</label>
+          {{ form.message }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <h5>Contact Details</h5>
+      <p>Shiva Shakti Engineering and Construction<br>Guru H M<br>Phone: 9845849799<br>Email: guruhm007@gmail.com</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

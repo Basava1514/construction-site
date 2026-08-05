@@ -1,0 +1,8 @@
+:root{--primary:#0F4C81;--secondary:#F97316;--bg:#F8F9FA;--text:#212529}
+body{font-family:'Poppins',sans-serif;color:var(--text);background:var(--bg)}
+.navbar-brand img{height:48px}
+.hero{color:#fff;padding:80px 0}
+.whatsapp-float{position:fixed;right:20px;bottom:90px;background:#25D366;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.2);z-index:999}
+.call-float{position:fixed;right:20px;bottom:20px;background:#0F4C81;color:#fff;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.2);z-index:999}
+.footer{padding:40px 0}
+img{max-width:100%;height:auto}

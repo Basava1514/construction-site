@@ -1,0 +1,8 @@
+Django>=5.0,<6.0
+gunicorn
+psycopg2-binary
+whitenoise
+django-crispy-forms
+Pillow
+django-extensions
+AOS

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Shiva Shakti Engineering and Construction{% endblock %}</title>
+  <meta name="description" content="Professional Fabrication & Construction Services with Quality, Precision and Trust.">
+  <meta name="keywords" content="fabrication, construction, steel fabrication, industrial shed">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  {% include 'includes/navbar.html' %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'includes/footer.html' %}
+
+  <a href="https://wa.me/919845849799" class="whatsapp-float" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:9845849799" class="call-float" aria-label="Call"><i class="fas fa-phone"></i></a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="/static/js/main.js"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
