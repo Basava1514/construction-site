@@ -11,8 +11,80 @@
   <div class="container py-5">
     <h1>Contact Us</h1>
     <p>Shiva Shakti Engineering and Construction<br>Guru H M<br>Phone: 9845849799<br>Email: guruhm007@gmail.com</p>
+
     <h4>Send a message via WhatsApp</h4>
-    <p><a class="btn btn-success" href="https://wa.me/919845849799?text=Hello%20Guru%20H%20M,%0AI%20visited%20your%20website.%0A%0AName:%0APhone:%0AService:%0AMessage:%0A">Message on WhatsApp</a></p>
+    <form id="contactForm" class="row g-3" aria-label="Contact form">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name *</label>
+        <input type="text" id="name" name="name" class="form-control" required aria-required="true">
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone *</label>
+        <input type="tel" id="phone" name="phone" class="form-control" required aria-required="true" pattern="[0-9 +()-]{7,}" placeholder="9845849799">
+      </div>
+      <div class="col-12">
+        <label for="service" class="form-label">Service Required</label>
+        <select id="service" name="service" class="form-select">
+          <option value="">Select a service</option>
+          <option>Steel Fabrication</option>
+          <option>Structural Fabrication</option>
+          <option>MS Fabrication</option>
+          <option>SS Fabrication</option>
+          <option>Industrial Shed Construction</option>
+          <option>Warehouse Construction</option>
+          <option>PEB Structures</option>
+          <option>Residential Construction</option>
+          <option>Commercial Buildings</option>
+          <option>Roofing Works</option>
+          <option>Welding Services</option>
+          <option>Machine Installation</option>
+          <option>Maintenance Services</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-control" rows="4" placeholder="Describe your requirement..."></textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-success" id="whatsappBtn">Send via WhatsApp</button>
+        <a class="btn btn-outline-secondary ms-2" href="https://wa.me/919845849799">Open WhatsApp</a>
+      </div>
+    </form>
   </div>
+
+  <script>
+    (function(){
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const service = document.getElementById('service').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !phone) {
+          alert('Please enter your name and phone number.');
+          return;
+        }
+        // Build WhatsApp text with line breaks
+        const textLines = [
+          'Hello Guru H M,',
+          'I visited Shiva Shakti Engineering and Construction website.',
+          '',
+          'Name: ' + name,
+          'Phone: ' + phone,
+          'Service: ' + (service || '-'),
+          'Message: ' + (message || '-')
+        ];
+        const text = textLines.join('\n');
+        const base = 'https://wa.me/919845849799?text=';
+        const url = base + encodeURIComponent(text);
+        // Redirect to WhatsApp (works on mobile and desktop if WhatsApp Web is available)
+        window.location.href = url;
+      });
+    })();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
