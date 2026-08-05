@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://basava1514.github.io/construction-site/sitemap.xml
