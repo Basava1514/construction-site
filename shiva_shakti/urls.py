@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from home.views import healthz
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -10,6 +11,7 @@ urlpatterns = [
     path('projects/', include('projects.urls')),
     path('gallery/', include('gallery.urls')),
     path('contact/', include('contact.urls')),
+    path('healthz/', healthz),
 ]
 
 if settings.DEBUG:

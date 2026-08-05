@@ -7,4 +7,5 @@ Pillow
 django-extensions
 dj-database-url
 python-dotenv
+sentry-sdk
 AOS
