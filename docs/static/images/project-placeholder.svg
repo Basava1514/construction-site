@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500' viewBox='0 0 800 500'>
+  <rect width='800' height='500' fill='#f4f6f8' rx='12'/>
+  <g fill='#9aa6b2' font-family='Poppins, sans-serif'>
+    <text x='40' y='60' font-size='28'>Project Image</text>
+    <text x='40' y='110' font-size='18'>Industrial Warehouse / Factory Shed</text>
+  </g>
+</svg>

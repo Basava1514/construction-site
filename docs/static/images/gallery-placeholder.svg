@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'>
+  <rect width='600' height='400' fill='#eee' rx='8'/>
+  <g fill='#b0bec5' font-family='Poppins, sans-serif'>
+    <text x='30' y='80' font-size='26'>Gallery Image</text>
+    <text x='30' y='120' font-size='16'>Fabrication • Construction • Industrial</text>
+  </g>
+</svg>
