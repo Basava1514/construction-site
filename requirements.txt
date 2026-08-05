@@ -5,4 +5,6 @@ whitenoise
 django-crispy-forms
 Pillow
 django-extensions
+dj-database-url
+python-dotenv
 AOS
