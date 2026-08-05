@@ -1,1 +1,1 @@
-web: gunicorn shiva_shakti.wsgi --log-file -
+web: bash entrypoint.sh
