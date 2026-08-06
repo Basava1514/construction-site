@@ -12,14 +12,13 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link href="./static/css/style.css" rel="stylesheet">
   <style>
-    /* Responsive hero background: fallback to remote Unsplash images for higher-quality visuals */
-    .hero { background-image: url('https://source.unsplash.com/1200x700/?construction,site'); background-size: cover; background-position: center; position:relative; }
-    @media (min-width: 992px) {
-      .hero { background-image: url('https://source.unsplash.com/2000x900/?fabrication,steel'); }
+    /* Responsive hero: use merged hero with logo overlay */
+    .hero { background-image: url('./static/images/hero_merged@1x.webp'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; }
+    @media (min-width: 768px) {
+      .hero { background-image: url('./static/images/hero_merged@2x.webp'); }
     }
-    /* Logo overlay to visually merge company mark with the sourced background */
-    .hero .logo-overlay { position:absolute; right:24px; bottom:24px; background:rgba(255,255,255,0.9); padding:8px; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.25); }
-    .hero .logo-overlay img{ height:56px; display:block }
+    .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.25); }
+    .hero > .container { position: relative; z-index: 2; }
   </style>
 </head>
 <body>
@@ -61,10 +60,6 @@
             <p><strong>Email:</strong> guruhm007@gmail.com</p>
             <a href="https://wa.me/919845849799" class="btn btn-success w-100">WhatsApp Us</a>
           </div>
-        </div>
-        <!-- Logo overlay merging: places the company logo over the hero sourced image -->
-        <div class="logo-overlay d-none d-md-block">
-          <img src="./static/images/logo.webp" alt="Shiva Shakti Logo">
         </div>
       </div>
     </div>
@@ -174,19 +169,56 @@
     <div class="container">
       <h3 class="mb-4" data-aos="fade-up">Gallery</h3>
       <div class="row g-3">
-        <!-- User-supplied images (preserve all, except logo) -->
-        <div class="col-6 col-md-4" data-aos="fade-up"><img src="./static/images/gallery1.webp" alt="Gallery item" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="50"><img src="./static/images/gallery2.webp" alt="Gallery item" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="100"><img src="./static/images/proj1@1x.webp" srcset="./static/images/proj1@1x.webp 1x, ./static/images/proj1@2x.webp 2x" alt="Project 1" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="150"><img src="./static/images/proj2@1x.webp" srcset="./static/images/proj2@1x.webp 1x, ./static/images/proj2@2x.webp 2x" alt="Project 2" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="200"><img src="./static/images/proj3@1x.webp" srcset="./static/images/proj3@1x.webp 1x, ./static/images/proj3@2x.webp 2x" alt="Project 3" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="250"><img src="./static/images/svc1@1x.webp" srcset="./static/images/svc1@1x.webp 1x, ./static/images/svc1@2x.webp 2x" alt="Service 1" class="img-fluid rounded" loading="lazy"></div>
-        <!-- Stock images (hotlinked from Unsplash) to enrich gallery context -->
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="300"><img src="https://source.unsplash.com/800x600/?fabrication,steel" alt="Fabrication" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="350"><img src="https://source.unsplash.com/800x600/?welding,workshop" alt="Welding" class="img-fluid rounded" loading="lazy"></div>
-        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="400"><img src="https://source.unsplash.com/800x600/?industrial,site" alt="Industrial" class="img-fluid rounded" loading="lazy"></div>
+        <!-- All user-uploaded images in gallery (organized by type) -->
+        <div class="col-6 col-md-4" data-aos="fade-up">
+          <figure class="figure w-100">
+            <img src="./static/images/gallery1@1x.webp" srcset="./static/images/gallery1@1x.webp 1x, ./static/images/gallery1@2x.webp 2x" alt="Gallery - Project 1" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Project Gallery</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="50">
+          <figure class="figure w-100">
+            <img src="./static/images/gallery2@1x.webp" srcset="./static/images/gallery2@1x.webp 1x, ./static/images/gallery2@2x.webp 2x" alt="Gallery - Project 2" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Fabrication Work</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <figure class="figure w-100">
+            <img src="./static/images/proj1@1x.webp" srcset="./static/images/proj1@1x.webp 1x, ./static/images/proj1@2x.webp 2x" alt="Gallery - Industrial Warehouse" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Industrial Warehouse</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="150">
+          <figure class="figure w-100">
+            <img src="./static/images/proj2@1x.webp" srcset="./static/images/proj2@1x.webp 1x, ./static/images/proj2@2x.webp 2x" alt="Gallery - Factory Shed" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Factory Shed</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <figure class="figure w-100">
+            <img src="./static/images/proj3@1x.webp" srcset="./static/images/proj3@1x.webp 1x, ./static/images/proj3@2x.webp 2x" alt="Gallery - Residential Villa" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Residential Villa</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="250">
+          <figure class="figure w-100">
+            <img src="./static/images/svc1@1x.webp" srcset="./static/images/svc1@1x.webp 1x, ./static/images/svc1@2x.webp 2x" alt="Gallery - Steel Fabrication" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Steel Fabrication</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <figure class="figure w-100">
+            <img src="./static/images/svc2@1x.webp" srcset="./static/images/svc2@1x.webp 1x, ./static/images/svc2@2x.webp 2x" alt="Gallery - Structural Work" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Structural Work</figcaption>
+          </figure>
+        </div>
+        <div class="col-6 col-md-4" data-aos="fade-up" data-aos-delay="350">
+          <figure class="figure w-100">
+            <img src="./static/images/svc3@1x.webp" srcset="./static/images/svc3@1x.webp 1x, ./static/images/svc3@2x.webp 2x" alt="Gallery - Industrial Construction" class="figure-img img-fluid rounded">
+            <figcaption class="figure-caption">Industrial Construction</figcaption>
+          </figure>
+        </div>
       </div>
-      <p class="small text-muted mt-3">Gallery images: your uploaded photos plus Unsplash (royalty-free) for contextual visuals.</p>
     </div>
   </section>
 
